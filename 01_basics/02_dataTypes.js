@@ -9,3 +9,12 @@ undefined => no value assigned; type -> undefined
 symbol => defines uniqueness
 object => key value pair
 */
+
+/*
+Refrence (non-primitive) data types-->
+1. Object => object
+2. Array => object
+3. Function => function (object)
+4. Date
+
+*/
