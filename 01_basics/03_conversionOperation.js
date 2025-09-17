@@ -23,3 +23,25 @@ undefined -> NaN number
 => number to string
 33 -> "33" string
 */
+
+/*
+=> Operations
+"1" + 2 -> "12" string
+1 + "2" -> "12" string
+1 + 2 + "3" -> "33" string
+"1" + 2 + 3 -> "123" string
+"4" - 2 -> 2 number
+4 - "2" -> 2 number
+"4" * 2 -> 8 number
+4 * "2" -> 8 number
+"4" / 2 -> 2 number
+4 / "2" -> 2 number
+"4" / "2" -> 2 number
+
++true -> 1 number
++false -> 0 number
++"" -> 0 number
++null -> 0 number
++undefined -> NaN number
+
+*/
