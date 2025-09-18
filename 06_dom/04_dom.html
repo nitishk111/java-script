@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipultion</title>
+</head>
+<body style="background-color: burlywood;">
+    <ul>
+        <li>Java Script</li>
+    </ul>
+</body>
+
+<script>
+    //Creating element in function
+
+    function addElement(parent, text, element){
+        const div= document.createElement(element)
+        text= document.createTextNode(text)
+        div.appendChild(text)
+        parent.appendChild(div)
+    }
+
+    const parent = document.querySelector("ul")
+    addElement(parent, "Python", "li")
+    addElement(parent, "Java", "li")
+
+    function addElementOptimised(parentClass, text, element){
+        const div= document.createElement(element)
+        div.appendChild(document.createTextNode(text))
+        document.querySelector(parentClass).appendChild(div)
+    }
+    addElementOptimised("ul", "Type Script", "li")
+
+    //Editing elements
+    //1
+    const second= document.querySelector("li:nth-child(2)")
+    const newLi= document.createElement("li")
+    newLi.textContent="go Lang"
+    second.replaceWith(newLi)
+
+    //2
+    const third= document.querySelector("li:first-child")
+    third.outerHTML="<li>C++</li>"
+
+    //remove
+    const fourth = document.querySelector("li:last-child")
+    fourth.remove()
+</script>
+</html>
