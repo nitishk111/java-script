@@ -2,7 +2,6 @@ let resNum = Math.floor(Math.random() * 100) + 1;
 
 const submit = document.querySelector("#subt");
 const guessed = document.querySelector("#guessField");
-
 const guessSlot = document.querySelector(".guesses");
 const remaining = document.querySelector(".lastResult");
 const loworhigh = document.querySelector(".lowOrHi");
@@ -34,7 +33,7 @@ function validateGuess(guessNum) {
   }
 }
 function checkGuss(guessed) {}
-function displayMessage(guessNum) {
+function displayMessage(message) {
     newRemain=parseInt(remaining.value)-1;
     if (newRemain == -1){
         playGame = false;
