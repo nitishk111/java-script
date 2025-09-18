@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document Object Model</title>
+    <style>
+      #heading {
+        color: brown;
+      }
+      .bkg{
+        background-color: bisque;
+        color: green;
+      }
+    </style>
+  </head>
+  <body class ="bkg">
+    <div>
+      <h1 id="heading">Document Object Model Learning</h1>
+      <h2>Here goes something...</h2>
+      <div class="parent">
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+      </div>
+   </div>
+  </body>
+  <script>
+    const parent =document.querySelector(".parent");
+    // console.log(parent)
+    // console.log(parent.children);
+    // console.log(parent.children[0].innerHTML="Sunday");
+
+    // for (let e = 0; e < parent.children.length; e++) {
+    //         console.log(parent.children[e].innerHTML);              
+    // }
+    // parent.children[1].style.color="red";
+
+    // console.log(parent.firstElementChild.innerHTML);
+    // console.log(parent.lastElementChild.innerHTML);
+
+    const day1= document.querySelector('.day')
+    // console.log(day1)
+    // console.log(day1.parentElement);
+    // console.log(day1.nextElementSibling.innerHTML);
+    
+    console.log("Nodes: ", parent.childNodes); // contains nodes list, even next line etc
+    
+    
+    
+    
+  </script>
+</html>
