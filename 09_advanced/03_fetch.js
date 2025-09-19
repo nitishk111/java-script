@@ -1,0 +1,6 @@
+fetch("https://api.github.com/users/nitishk111")
+  .then((resp) => resp.json())
+  .then(res=> res.created_at)
+  .then((res) => console.log(res))
+  .catch((e) => console.log(e.message))
+  .finally("link Fetched")
