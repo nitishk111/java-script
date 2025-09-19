@@ -5,23 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Events</title>
   </head>
-  <body style="background-color: #212121">
+  <body style="background-color: rebeccapurple">
     <h1 style="text-align: center;">0</h1>
+    <ul>
+      <li style="padding-bottom: 17px;">This is element 1</li>
+      <li class="li2">This is element 2</li>
+      <a href="google.com">google</a>
+    </ul>
   </body>
   <script>
     let a = 0;
     let h1= document.querySelector("h1");
-    h1.addEventListener("click", (e) => h1.innerText = parseInt(h1.innerText)+1, false);
-    // h1.onclick= ()=>{ 
-    // }
-    //attach Event
-    // type, timestamp, defaultPrevent, srcElement, target, toElement
-    // clintX, clientY -. position
-    // alt, shift, enter key, keycode
+    // => Event Listner attachment -- 
+    // 1. Avoid puting listner in html tag, as scaling is not easy there
+    
+    // 2
+    // h1.onclick= ()=>alert("clicked")
+    
+    // 3
+    //attachEvent()
 
-    // => Event Propogation
-    // -> Event bubbling, false
-    // -> Event 
+    // 4
+    // onEventListner() --jQuery
+    
+
+    // 5 -- best approach, accomodates many events, third para is default false
+    // h1.addEventListener("click", (e) => h1.innerText = parseInt(h1.innerText)+1);
+    
+    // h1.addEventListener("click", (e) => console.log(e), false);
+
+    // event is provided to callback listner function; 
+    // --> type of event object [pointer event, mousehover etc]
+    // --> event object contains many properties, such as:
+    // type, timestamp, defaultPrevent, srcElement, target, toElement
+    // clintX, clientY -. position, alt, shift, enter key, keycode
+
+    // => Event  Propogation
+    // -> 1. Event bubbling, false --> inside out propogation; in below example, first li2 then ul; when li2 is clicked
+    // -> 2. Event Capturing, true --> first outer event get propogated; in below example, first ul then li2, when li2 get clicked. true Value is set on parent element
+
+    // const li= document.querySelector(".li2").addEventListener('click', (e)=>console.log("l2 clicked")) // will get activated when li2 clicked
+
+    // const ul= document.querySelector("ul").addEventListener('click', e=> {console.log("ul clicked"); e.stopPropagation()}, true) // will get activated with whole ul
+
+    // e.stopPropogation(), stops event from going to other elements; keep in mind-- events doesnt propogate from those elements that have stopPropogation, and if eventPropogation is true, then event starts at parent hense child element cant stop that.
+
+  //  document.querySelector("a").addEventListener('click', (e)=>e.preventDefault());
+    // preventDefault, stops default behaviour of event
+
+
+    document.querySelector("ul").addEventListener('click', (e)=>{
+      e.preventDefault();
+      // console.log(e);
+      console.log(e.target); // or e.target.parentNode if li has image, then li will be selected
+      // e.target.remove(); // or e.target.parentNode.removeChild(e.target)
+      //problem with upper line, will remove ul also when clicked outside li and in ul
+      
+      if(e.target.tagName ==="LI"){
+        e.target.remove();
+      }
+      
+    })
 
   </script>
 </html>
