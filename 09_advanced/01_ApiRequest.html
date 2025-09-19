@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Request</title>
+</head>
+<body>
+  
+    
+</body>
+<script>
+//      The XMLHttpRequest.readyState property returns the state an XMLHttpRequest client is in. An XHR client exists in one of the following states:
+//  Value	State	        Description
+//  0	    UNSENT	        Client has been created. open() not called yet.
+//  1	    OPENED	        open() has been called.
+//  2	 HEADERS_RECEIVED  send() has been called, and headers and status are available.
+//  3	    LOADING	        Downloading; responseText holds partial data.
+//  4	    DONE	        The operation is complete.
+
+    const reqUrl='https://api.github.com/users/nitishk111'
+    const xhr= new XMLHttpRequest();
+    xhr.onreadystatechange= ()=> {//console.log(xhr.readyState) // 1 2 3 4 
+        if(xhr.readyState ===4){
+            const data= JSON.parse(xhr.responseText) // change String to JSON object
+            // console.log(data); 
+            const image= data.avatar_url
+            const name= data.name
+            const lastUpdate = data.updated_at
+            // console.log(name, lastUpdate, image);
+            const h3= document.createElement("h3")
+            const img= document.createElement("img")
+            const h4= document.createElement("h4")          
+            img.src=image
+            h3.innerText=name
+            h4.innerText= `Profile last updated at - ${new Date(lastUpdate).toLocaleDateString()}`
+            document.body.appendChild(img)            
+            document.body.appendChild(h3)
+            document.body.appendChild(h4)
+   
+        }
+    } 
+    xhr.open('GET', reqUrl) 
+    xhr.send()
+
+
+</script>
+</html>
