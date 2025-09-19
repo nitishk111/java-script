@@ -25,7 +25,8 @@
 				"esbenp.prettier-vscode",
 				"vscode-icons-team.vscode-icons",
 				"wayou.vscode-todo-highlight",
-				"ritwickdey.liveserver"
+				"ritwickdey.liveserver",
+				"DavidAnson.vscode-markdownlint"
 			],
 			"settings": {
 				"editor.fontSize": 18,
