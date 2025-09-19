@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: burlywood;">
+    <h1>Asynchrosous JS</h1>
+    <button id="str">Start</button>
+    <button id="stp">Stop</button>
+    
+</body>
+<script>
+   
+   const startFun= (str)=> console.log(str, new Date().getSeconds() );
+
+   const interval =setInterval(startFun, 1000, "Second is: ");
+
+   document.querySelector("#stp").addEventListener('click', ()=>{
+    clearInterval(interval);
+   })
+
+   document.querySelector("#str").addEventListener('click', ()=>{
+     clearInterval(interval)
+   })
+  
+
+</script>
+</html>
